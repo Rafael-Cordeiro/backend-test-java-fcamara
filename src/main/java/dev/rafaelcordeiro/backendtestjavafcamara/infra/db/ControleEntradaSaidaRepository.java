@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface ControleEntradaSaidaRepository extends JpaRepository<ControleEntradaSaida, Long> {
     List<ControleEntradaSaida> findByVeiculoAndEstabelecimento(Veiculo veiculo, Estabelecimento estabelecimento);
+    List<ControleEntradaSaida> findByEstabelecimento(Estabelecimento estabelecimento);
 }
