@@ -12,6 +12,7 @@ import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.Persiste
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormEstabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormVeiculo;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidarEntradaSaida;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.VerificarDisponibilidadeVaga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -43,6 +44,8 @@ public class StrategiesMap {
     @Autowired
     ValidarEntradaSaida validarEntradaSaida;
     @Autowired
+    VerificarDisponibilidadeVaga verificarDisponibilidadeVaga;
+    @Autowired
     CadastrarEntradaSaida cadastrarEntradaSaida;
 
 
@@ -56,7 +59,7 @@ public class StrategiesMap {
         map.put("PERSISTE_VEICULO", List.of(validaFormVeiculo, persisteVeiculo));
         map.put("FINDALL_VEICULOS", List.of(findAllVeiculos));
         map.put("DELETE_VEICULO", List.of(deleteVeiculo));
-        map.put("CADASTRA_ENTRADA_SAIDA", List.of(complementarVeiculoEstabelecimento, validarEntradaSaida, cadastrarEntradaSaida));
+        map.put("CADASTRA_ENTRADA_SAIDA", List.of(complementarVeiculoEstabelecimento, validarEntradaSaida, verificarDisponibilidadeVaga, cadastrarEntradaSaida));
     }
 
     public List<IStrategy> getStrategies(String name) {
