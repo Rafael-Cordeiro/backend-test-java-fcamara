@@ -1,6 +1,7 @@
 package dev.rafaelcordeiro.backendtestjavafcamara.domain.model;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.DomainEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +13,7 @@ import lombok.Data;
 public class Veiculo extends DomainEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="vei_id")
     private Long id;
     private String marca;
     private String modelo;
