@@ -7,3 +7,7 @@ INSERT INTO veiculo (marca, modelo, cor, placa, tipo) VALUES
 ('Chevrolet', 'Onix Hatch 2018', 'Branco', 'CEI-3Y22', 'B'),
 ('Yamaha', 'Fazer FZ25 ABS', 'Azul', 'SPO-4L21', 'A'),
 ('BMW', 'G 310 GS', 'Preto', 'GZW-7546', 'A');
+
+INSERT INTO controle_entrada_saida (entrada_saida, est_id, vei_id, registro) VALUES
+(0, 1, 1, '2024-09-10 18:53:06.155936+00'),
+(1, 1, 1, '2024-09-10 18:54:01.452741+00');
