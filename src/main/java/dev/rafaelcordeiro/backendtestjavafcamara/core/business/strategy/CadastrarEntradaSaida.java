@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.Optional;
 
 @Component
@@ -20,6 +21,7 @@ public class CadastrarEntradaSaida implements IStrategy<ControleEntradaSaida> {
     public void execute(ControleEntradaSaida entity, BusinessCase<ControleEntradaSaida> businessCase) {
         try {
             if (businessCase.getResult().getSuccess()) {
+                entity.setRegistro(Instant.now());
                 businessCase.getResult().setEntity(Optional.of(repository.save(entity)));
             } else {
                 log.error("Status de erro na execução das validações. Abortando cadastro de entrada ou saída");

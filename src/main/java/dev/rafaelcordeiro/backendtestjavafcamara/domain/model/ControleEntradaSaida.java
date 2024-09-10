@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
+import java.time.Instant;
 import java.util.Date;
 
 @Data
@@ -26,5 +27,5 @@ public class ControleEntradaSaida extends DomainEntity {
     @JoinColumn(name = "vei_id")
     private Veiculo veiculo;
     private EntradaSaidaEnum entradaSaida;
-    private Date registro;
+    private Instant registro;
 }
