@@ -2,19 +2,24 @@ package dev.rafaelcordeiro.backendtestjavafcamara.domain.model;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.DomainEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "estabelecimento")
-
+@Entity(name = "estabelecimento")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Estabelecimento extends DomainEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String cnpj;
-    private String endereço;
+    private String endereco;
     private String telefone;
     private Integer qtdeVagasMotos;
     private Integer qtdeVagasCarros;
