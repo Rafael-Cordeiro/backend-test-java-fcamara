@@ -31,7 +31,7 @@ public class EstabelecimentoController {
             result.setSuccess(true);
             return ResponseEntity.ok(result);
         } catch (InvalidStrategyConditionException e) {
-            result.setMessages(Arrays.stream(e.getMessage().split("\n")).toList());
+            result.setMessages(Arrays.stream(e.getMessage().split("\n")).filter(it -> !it.isEmpty()).toList());
             result.setSuccess(false);
             return ResponseEntity.unprocessableEntity().body(result);
         }
@@ -45,14 +45,14 @@ public class EstabelecimentoController {
             result.setSuccess(true);
             return ResponseEntity.ok(result);
         } catch (InvalidStrategyConditionException e) {
-            result.setMessages(Arrays.stream(e.getMessage().split("\n")).toList());
+            result.setMessages(Arrays.stream(e.getMessage().split("\n")).filter(it -> !it.isEmpty()).toList());
             result.setSuccess(false);
             return ResponseEntity.badRequest().body(result);
         }
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<APIResponse<Estabelecimento>> deleteEstabelecimento(@RequestBody Estabelecimento estabelecimento, @PathVariable Long id) {
+    public ResponseEntity<APIResponse<Estabelecimento>> updateEstabelecimento(@RequestBody Estabelecimento estabelecimento, @PathVariable Long id) {
         estabelecimento.setId(id);
         var result = new APIResponse<Estabelecimento>();
         try {
@@ -60,7 +60,7 @@ public class EstabelecimentoController {
             result.setSuccess(true);
             return ResponseEntity.ok(result);
         } catch (InvalidStrategyConditionException e) {
-            result.setMessages(Arrays.stream(e.getMessage().split("\n")).toList());
+            result.setMessages(Arrays.stream(e.getMessage().split("\n")).filter(it -> !it.isEmpty()).toList());
             result.setSuccess(false);
             return ResponseEntity.unprocessableEntity().body(result);
         }
@@ -76,7 +76,7 @@ public class EstabelecimentoController {
             result.setSuccess(true);
             return ResponseEntity.ok(result);
         } catch (InvalidStrategyConditionException e) {
-            result.setMessages(Arrays.stream(e.getMessage().split("\n")).toList());
+            result.setMessages(Arrays.stream(e.getMessage().split("\n")).filter(it -> !it.isEmpty()).toList());
             result.setSuccess(false);
             return ResponseEntity.status(404).body(result);
         }
