@@ -1,5 +1,7 @@
 package dev.rafaelcordeiro.backendtestjavafcamara.core.business;
 
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.CadastrarEntradaSaida;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ComplementarVeiculoEstabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.DeleteEstabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.DeleteVeiculo;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.FindAllVeiculos;
@@ -9,6 +11,7 @@ import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrateg
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.PersisteVeiculo;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormEstabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormVeiculo;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidarEntradaSaida;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +38,12 @@ public class StrategiesMap {
     FindAllVeiculos findAllVeiculos;
     @Autowired
     DeleteVeiculo deleteVeiculo;
+    @Autowired
+    ComplementarVeiculoEstabelecimento complementarVeiculoEstabelecimento;
+    @Autowired
+    ValidarEntradaSaida validarEntradaSaida;
+    @Autowired
+    CadastrarEntradaSaida cadastrarEntradaSaida;
 
 
     private Map<String, List<IStrategy>> map;
@@ -47,6 +56,7 @@ public class StrategiesMap {
         map.put("PERSISTE_VEICULO", List.of(validaFormVeiculo, persisteVeiculo));
         map.put("FINDALL_VEICULOS", List.of(findAllVeiculos));
         map.put("DELETE_VEICULO", List.of(deleteVeiculo));
+        map.put("CADASTRA_ENTRADA_SAIDA", List.of(complementarVeiculoEstabelecimento, validarEntradaSaida, cadastrarEntradaSaida));
     }
 
     public List<IStrategy> getStrategies(String name) {
