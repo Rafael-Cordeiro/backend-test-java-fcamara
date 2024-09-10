@@ -1,6 +1,6 @@
 package dev.rafaelcordeiro.backendtestjavafcamara.api;
 
-import dev.rafaelcordeiro.backendtestjavafcamara.core.facade.CRUDFacade;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.facade.Facade;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.util.InvalidStrategyConditionException;
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Estabelecimento;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.Arrays;
 public class EstabelecimentoController {
 
     @Autowired
-    private CRUDFacade<Estabelecimento> facade;
+    private Facade<Estabelecimento> facade;
 
     @PostMapping
     public ResponseEntity<APIResponse<Estabelecimento>> createEstabelecimento(@RequestBody Estabelecimento estabelecimento) {

@@ -14,13 +14,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = {CRUDFacade.class})
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = {Facade.class})
 //@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 public class CreateEstabelecimentoTest {
 
     @Autowired
     @InjectMocks
-    private CRUDFacade<Estabelecimento> facade;
+    private Facade<Estabelecimento> facade;
 
     @BeforeEach
     void setup() {

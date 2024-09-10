@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CRUDFacade<E extends DomainEntity> implements ICRUDFacade<E> {
+public class Facade<E extends DomainEntity> implements ICRUDFacade<E> {
 
     @Autowired
     BusinessCasesExecutor executor;
