@@ -1,18 +1,18 @@
 package dev.rafaelcordeiro.backendtestjavafcamara.core.business;
 
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.CadastrarEntradaSaida;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ComplementarVeiculoEstabelecimento;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.DeleteEstabelecimento;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.DeleteVeiculo;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.FindAllVeiculos;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.PersisteEstabelecimento;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.FindAllEstabelecimentos;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.CadastrarEntradaSaida;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.ComplementarVeiculoEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.DeleteEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.DeleteVeiculo;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.FindAllVeiculos;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.PersisteEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.FindAllEstabelecimentos;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrategy;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.PersisteVeiculo;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormEstabelecimento;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidaFormVeiculo;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.ValidarEntradaSaida;
-import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.VerificarDisponibilidadeVaga;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.PersisteVeiculo;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.ValidaFormEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.ValidaFormVeiculo;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.ValidarEntradaSaida;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.VerificarDisponibilidadeVaga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

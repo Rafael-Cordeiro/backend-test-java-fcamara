@@ -1,15 +1,13 @@
-package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy;
+package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.BusinessCase;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrategy;
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.ControleEntradaSaida;
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.EntradaSaidaEnum;
 import dev.rafaelcordeiro.backendtestjavafcamara.infra.db.ControleEntradaSaidaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @Slf4j

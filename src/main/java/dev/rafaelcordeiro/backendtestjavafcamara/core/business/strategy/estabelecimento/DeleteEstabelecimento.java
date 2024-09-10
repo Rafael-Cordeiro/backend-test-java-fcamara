@@ -1,21 +1,22 @@
-package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy;
+package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.BusinessCase;
-import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Veiculo;
-import dev.rafaelcordeiro.backendtestjavafcamara.infra.db.VeiculoJPARepository;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrategy;
+import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Estabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.infra.db.EstabelecimentoJPARepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class DeleteVeiculo implements IStrategy<Veiculo> {
+public class DeleteEstabelecimento implements IStrategy<Estabelecimento> {
 
     @Autowired
-    VeiculoJPARepository repository;
+    EstabelecimentoJPARepository repository;
 
     @Override
-    public void execute(Veiculo entity, BusinessCase<Veiculo> businessCase) {
+    public void execute(Estabelecimento entity, BusinessCase<Estabelecimento> businessCase) {
         try {
             if (businessCase.getResult().getSuccess()) {
                 if (entity.getId() != null) {
@@ -26,11 +27,10 @@ public class DeleteVeiculo implements IStrategy<Veiculo> {
                 }
                 else throw new Exception("A entidade analisada não possui ID");
             } else {
-                log.error("Status de erro na execução das validações. Abortando exclusão de veículo");
+                log.error("Status de erro na execução das validações. Abortando exclusão de Estabelecimento");
             }
         } catch (Exception e) {
             handleException(log, e, businessCase);
         }
     }
 }
-

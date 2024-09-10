@@ -1,6 +1,7 @@
-package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy;
+package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.BusinessCase;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrategy;
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Estabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.infra.db.EstabelecimentoJPARepository;
 import lombok.extern.slf4j.Slf4j;

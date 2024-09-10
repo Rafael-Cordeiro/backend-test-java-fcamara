@@ -1,6 +1,7 @@
-package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy;
+package dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento;
 
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.BusinessCase;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.IStrategy;
 import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Estabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.infra.db.EstabelecimentoJPARepository;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Component
 @Slf4j
-public class DeleteEstabelecimento implements IStrategy<Estabelecimento> {
+public class PersisteEstabelecimento implements IStrategy<Estabelecimento> {
 
     @Autowired
     EstabelecimentoJPARepository repository;
@@ -23,12 +24,19 @@ public class DeleteEstabelecimento implements IStrategy<Estabelecimento> {
                 if (entity.getId() != null) {
                     var persistedEntity = repository.findById(entity.getId()).orElse(null);
                     if (persistedEntity != null) {
-                        repository.delete(persistedEntity);
+                        persistedEntity.setNome(entity.getNome());
+                        persistedEntity.setCnpj(entity.getCnpj());
+                        persistedEntity.setEndereco(entity.getEndereco());
+                        persistedEntity.setTelefone(entity.getTelefone());
+                        persistedEntity.setQtdeVagasMotos(entity.getQtdeVagasMotos());
+                        persistedEntity.setQtdeVagasCarros(entity.getQtdeVagasCarros());
+
+                        businessCase.getResult().setEntity(Optional.of(repository.save(persistedEntity)));
                     } else throw new Exception("A entidade analisada possui ID (" + entity.getId() + "), mas nenhum registro foi encontrado no banco de dados");
                 }
-                else throw new Exception("A entidade analisada não possui ID");
+                else businessCase.getResult().setEntity(Optional.of(repository.save(entity)));
             } else {
-                log.error("Status de erro na execução das validações. Abortando exclusão de Estabelecimento");
+                log.error("Status de erro na execução das validações. Abortando persistência de Estabelecimento");
             }
         } catch (Exception e) {
             handleException(log, e, businessCase);
