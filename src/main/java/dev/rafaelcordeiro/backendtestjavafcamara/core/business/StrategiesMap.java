@@ -3,6 +3,8 @@ package dev.rafaelcordeiro.backendtestjavafcamara.core.business;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.CadastrarEntradaSaida;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.controleentradasaida.ComplementarVeiculoEstabelecimento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.DeleteEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.relatorioestacionamento.ComplementarEstabelecimento;
+import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.relatorioestacionamento.GerarRelatorioEstacionamento;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.DeleteVeiculo;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.veiculo.FindAllVeiculos;
 import dev.rafaelcordeiro.backendtestjavafcamara.core.business.strategy.estabelecimento.PersisteEstabelecimento;
@@ -62,6 +64,10 @@ public class StrategiesMap {
     VerificarDisponibilidadeVaga verificarDisponibilidadeVaga;
     @Autowired
     CadastrarEntradaSaida cadastrarEntradaSaida;
+    @Autowired
+    ComplementarEstabelecimento complementarEstabelecimento;
+    @Autowired
+    GerarRelatorioEstacionamento gerarRelatorioEstacionamento;
 
 
     private Map<String, List<IStrategy>> map;
@@ -82,6 +88,7 @@ public class StrategiesMap {
         map.put("FINDALL_VEICULOS", List.of(findAllVeiculos));
         map.put("DELETE_VEICULO", List.of(deleteVeiculo));
         map.put("CADASTRA_ENTRADA_SAIDA", List.of(complementarVeiculoEstabelecimento, validarEntradaSaida, verificarDisponibilidadeVaga, cadastrarEntradaSaida));
+        map.put("GERA_RELATORIO_ESTABELECIMENTO", List.of(complementarEstabelecimento, gerarRelatorioEstacionamento));
     }
 
     /**
