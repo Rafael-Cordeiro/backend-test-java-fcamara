@@ -10,6 +10,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+/**
+ * <h1><code>FindAllVeiculos</code></h1>
+ *
+ * Strategy que consulta e retorna lista de {@link Veiculo}.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class FindAllVeiculos implements IStrategy<Veiculo> {

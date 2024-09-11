@@ -6,6 +6,13 @@ import dev.rafaelcordeiro.backendtestjavafcamara.domain.model.Veiculo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+/**
+ * <h1><code>ValidaFormVeiculo</code></h1>
+ *
+ * Strategy que valida se todos os campos obrigatórios de {@link Veiculo} foram preenchidos.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class ValidaFormVeiculo implements IStrategy<Veiculo> {

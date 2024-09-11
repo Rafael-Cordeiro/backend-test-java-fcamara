@@ -10,12 +10,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * <h1><code>Facade</code></h1>
+ *
+ * <p>Fachada para os métodos de CRUD, implementando a chamada da execução de business cases, bem como o tratamento do
+ * resultado, podendo disparar {@link InvalidStrategyConditionException} em caso de erro.</p>
+ *
+ * @param <E> Entidade que extende {@link DomainEntity}
+ * @author Rafael Cordeiro
+ */
 @Service
 public class Facade<E extends DomainEntity> implements ICRUDFacade<E> {
 
     @Autowired
     BusinessCasesExecutor executor;
 
+    /**
+     * <h1><code>persist()</code></h1>
+     *
+     * Persiste entidade (Cadastra e Atualiza).
+     *
+     * @param entity Entidade a ser persistida
+     * @param caseName Nome do Business Case
+     * @throws InvalidStrategyConditionException Quando houver erro da execução do business case
+     * @return Entidade persistida vinda da base de dados
+     * @author Rafael Cordeiro
+     */
     @Override
     public E persist(E entity, String caseName) {
         BusinessCase<E> businessCase = new BusinessCase<E>().builder()
@@ -30,6 +50,16 @@ public class Facade<E extends DomainEntity> implements ICRUDFacade<E> {
         return optionalPersistedEntity.orElse(null);
     }
 
+    /**
+     * <h1><code>delete()</code></h1>
+     *
+     * Deleta entidade.
+     *
+     * @param entity Entidade a ser deletada
+     * @param caseName Nome do Business Case
+     * @throws InvalidStrategyConditionException Quando houver erro da execução do business case
+     * @author Rafael Cordeiro
+     */
     @Override
     public void delete(E entity, String caseName) {
         BusinessCase<E> businessCase = new BusinessCase<E>().builder()
@@ -42,6 +72,17 @@ public class Facade<E extends DomainEntity> implements ICRUDFacade<E> {
 
     }
 
+    /**
+     * <h1><code>findAll()</code></h1>
+     *
+     * Consulta lista de entidades.
+     *
+     * @param entity Entidade a ser consultada
+     * @param caseName Nome do Business Case
+     * @throws InvalidStrategyConditionException Quando houver erro da execução do business case
+     * @return Lista de entidades consultadas
+     * @author Rafael Cordeiro
+     */
     @Override
     public List<E> findAll(E entity, String caseName) {
         BusinessCase<E> businessCase = new BusinessCase<E>().builder()

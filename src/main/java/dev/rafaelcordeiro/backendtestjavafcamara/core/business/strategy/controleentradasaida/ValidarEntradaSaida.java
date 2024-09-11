@@ -13,6 +13,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * <h1><code>ValidarEntradaSaida</code></h1>
+ *
+ * <p>Strategy que valida se o veículo selecionado possui registro de entrada sem saída e valida se um
+ * cadastro de entrada ou saída é válido em um estabelecimento especifico.</p>
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class ValidarEntradaSaida implements IStrategy<ControleEntradaSaida> {

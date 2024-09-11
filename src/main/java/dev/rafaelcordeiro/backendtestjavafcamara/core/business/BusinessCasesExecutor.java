@@ -7,6 +7,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * <h1><code>BusinessCasesExecutor</code></h1>
+ *
+ * Responsável por executar a pipeline de strategies escolhida e monitorar a flag de abort
+ *
+ * @see StrategiesMap
+ * @see BusinessCase
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 public class BusinessCasesExecutor {
 

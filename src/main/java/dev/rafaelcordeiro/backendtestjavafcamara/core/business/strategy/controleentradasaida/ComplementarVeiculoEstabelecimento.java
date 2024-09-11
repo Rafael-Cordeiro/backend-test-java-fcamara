@@ -13,6 +13,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+/**
+ * <h1><code>ComplementarVeiculoEstabelecimento</code></h1>
+ *
+ * Strategy que complementa a entidade {@link ControleEntradaSaida} com dados de {@link Veiculo} e
+ * {@link Estabelecimento} e reporta erro se não encotrar qualquer um desses.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class ComplementarVeiculoEstabelecimento implements IStrategy<ControleEntradaSaida> {

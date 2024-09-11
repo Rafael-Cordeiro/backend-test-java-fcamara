@@ -9,6 +9,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * <h1><code>VerificarDisponibilidadeVaga</code></h1>
+ *
+ * <p>Strategy que valida se o estabelecimento selecionado possui vaga disponível para o tipo do veiculo selecionado.</p>
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class VerificarDisponibilidadeVaga implements IStrategy<ControleEntradaSaida> {

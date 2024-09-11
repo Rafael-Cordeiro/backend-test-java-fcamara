@@ -20,6 +20,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <h1><code>StrategiesMap</code></h1>
+ *
+ * <p>Classe wrapper para mapa de strategies. As strategies são organizadas em listas, que são mapeadas com strings,
+ * que nomeiam os business cases</p>
+ *
+ * <p>Cada business case é uma pipeline de tarefas que utilizam o design pattern Strategy. Cada classe strategy
+ * recebe a entidade e um {@link BusinessCase}.</p>
+ *
+ * @see BusinessCase
+ * @see BusinessCaseResult
+ * @see BusinessCasesExecutor
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 public class StrategiesMap {
 
@@ -51,6 +66,13 @@ public class StrategiesMap {
 
     private Map<String, List<IStrategy>> map;
 
+    /**
+     * <h1><code>loadMap()</code></h1>
+     *
+     * Carrega mapa com pipelines de strategies
+     *
+     * @author Rafael Cordeiro
+     */
     private void loadMap() {
         map = new HashMap<>();
         map.put("PERSISTE_ESTABELECIMENTO", List.of(validaFormEstabelecimento, persisteEstabelecimento));
@@ -62,6 +84,14 @@ public class StrategiesMap {
         map.put("CADASTRA_ENTRADA_SAIDA", List.of(complementarVeiculoEstabelecimento, validarEntradaSaida, verificarDisponibilidadeVaga, cadastrarEntradaSaida));
     }
 
+    /**
+     * <h1><code>getStrategies()</code></h1>
+     *
+     * Retorna pipeline de strategies e cria mapa se ainda não tiver sido instanciado.
+     *
+     * @param name Nome do business case
+     * @author Rafael Cordeiro
+     */
     public List<IStrategy> getStrategies(String name) {
         if (map == null) {
             loadMap();

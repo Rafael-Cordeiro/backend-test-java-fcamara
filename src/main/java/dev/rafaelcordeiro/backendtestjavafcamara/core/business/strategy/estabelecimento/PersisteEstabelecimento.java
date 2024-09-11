@@ -10,6 +10,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+/**
+ * <h1><code>PersisteEstabelecimento</code></h1>
+ *
+ * Strategy que realiza o cadastro ou atualização de {@link Estabelecimento}.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class PersisteEstabelecimento implements IStrategy<Estabelecimento> {

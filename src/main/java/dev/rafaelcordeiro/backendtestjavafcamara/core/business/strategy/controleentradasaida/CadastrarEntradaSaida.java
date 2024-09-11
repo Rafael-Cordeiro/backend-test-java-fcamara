@@ -11,6 +11,13 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.Optional;
 
+/**
+ * <h1><code>CadastrarEntradaSaida</code></h1>
+ *
+ * Strategy que realiza o cadastro de {@link ControleEntradaSaida}.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class CadastrarEntradaSaida implements IStrategy<ControleEntradaSaida> {

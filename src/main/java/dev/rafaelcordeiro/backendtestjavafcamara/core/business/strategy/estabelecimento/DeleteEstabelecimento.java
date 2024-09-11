@@ -8,6 +8,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * <h1><code>DeleteEstabelecimento</code></h1>
+ *
+ * Strategy que deleta {@link Estabelecimento} pelo ID.
+ *
+ * @author Rafael Cordeiro
+ */
 @Component
 @Slf4j
 public class DeleteEstabelecimento implements IStrategy<Estabelecimento> {
