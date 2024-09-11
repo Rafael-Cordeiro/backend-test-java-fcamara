@@ -57,6 +57,16 @@ public class GerarRelatorioEstacionamento implements IStrategy<RelatorioEstacion
                     entity.setQtdeEntradasTotal(Double.valueOf(mapEntradasHora.values().stream().map(List::size).reduce(Integer::sum).orElse(1)));
                     entity.setQtdeSaidasTotal(Double.valueOf(mapSaidasHora.values().stream().map(List::size).reduce(Integer::sum).orElse(1)));
 
+                    var entradasSaidasCarro = entradasSaidas
+                            .stream().filter(it -> it.getVeiculo().getTipo().equals("B")).toList();
+                    var entradasSaidasMoto = entradasSaidas
+                            .stream().filter(it -> it.getVeiculo().getTipo().equals("A")).toList();
+
+                    entity.setVagasCarroOcupadas(entradasSaidasCarro.stream().filter(it -> it.getEntradaSaida().equals(EntradaSaidaEnum.ENTRADA)).count() -
+                            entradasSaidasCarro.stream().filter(it -> it.getEntradaSaida().equals(EntradaSaidaEnum.SAIDA)).count());
+                    entity.setVagasMotoOcupadas(entradasSaidasMoto.stream().filter(it -> it.getEntradaSaida().equals(EntradaSaidaEnum.ENTRADA)).count() -
+                            entradasSaidasMoto.stream().filter(it -> it.getEntradaSaida().equals(EntradaSaidaEnum.SAIDA)).count());
+
                     businessCase.getResult().setEntity(Optional.of(entity));
                 } else {
                     businessCase.getResult().addMessage("Não há registro de entradas e saídas para esse estabelecimento (ID " + entity.getEstabelecimento().getId() + ")");
