@@ -10,4 +10,6 @@ public class RelatorioEstacionamento extends DomainEntity {
     private Double qtdeSaidasHora;
     private Double qtdeEntradasTotal;
     private Double qtdeSaidasTotal;
+    private Long vagasCarroOcupadas;
+    private Long vagasMotoOcupadas;
 }
